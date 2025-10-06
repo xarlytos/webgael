@@ -1,0 +1,120 @@
+/* Design Tokens - Hazlo en 3D */
+:root {
+  /* Colors - Dark Mode (default) */
+  --bg: #0B0F14;
+  --surface: rgba(255, 255, 255, 0.06);
+  --surface-hover: rgba(255, 255, 255, 0.09);
+  --surface-elevated: rgba(255, 255, 255, 0.08);
+
+  --brand: #59F3C1;
+  --brand-dark: #3DD3A3;
+  --brand-2: #7AA6FF;
+  --accent: #FF7AE0;
+
+  --text: #EAF2F1;
+  --text-secondary: rgba(234, 242, 241, 0.7);
+  --text-tertiary: rgba(234, 242, 241, 0.5);
+
+  --border: rgba(255, 255, 255, 0.1);
+  --border-hover: rgba(255, 255, 255, 0.2);
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(130deg, var(--brand) 0%, var(--brand-2) 50%, var(--accent) 100%);
+  --gradient-surface: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+
+  /* Status colors */
+  --success: #59F3C1;
+  --warning: #FFB84D;
+  --error: #FF6B6B;
+  --info: #7AA6FF;
+
+  /* Spacing scale (8px base) */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+
+  /* Border radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+  --radius-xl: 2rem;
+  --radius-2xl: 2.5rem;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.2);
+  --shadow-glow: 0 0 24px rgba(89, 243, 193, 0.3);
+
+  /* Blur */
+  --blur-sm: 8px;
+  --blur-md: 16px;
+  --blur-lg: 24px;
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Typography */
+  --font-display: 'Space Grotesk', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 2rem;
+  --text-4xl: 2.5rem;
+  --text-5xl: 3.5rem;
+  --text-6xl: 4.5rem;
+
+  /* Z-index scale */
+  --z-base: 0;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-fixed: 300;
+  --z-modal-backdrop: 400;
+  --z-modal: 500;
+  --z-popover: 600;
+  --z-tooltip: 700;
+}
+
+/* Light Mode */
+[data-theme="light"] {
+  --bg: #F5F7FA;
+  --surface: rgba(255, 255, 255, 0.9);
+  --surface-hover: rgba(255, 255, 255, 1);
+  --surface-elevated: rgba(255, 255, 255, 0.95);
+
+  --text: #1A1F28;
+  --text-secondary: rgba(26, 31, 40, 0.7);
+  --text-tertiary: rgba(26, 31, 40, 0.5);
+
+  --border: rgba(0, 0, 0, 0.1);
+  --border-hover: rgba(0, 0, 0, 0.2);
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+  --shadow-glow: 0 0 24px rgba(89, 243, 193, 0.4);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

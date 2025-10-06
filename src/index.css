@@ -1,0 +1,124 @@
+@import './tokens.css';
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-[var(--bg)] text-[var(--text)] antialiased;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  /* Glassmorphism utilities */
+  .glass {
+    background: var(--surface);
+    backdrop-filter: blur(var(--blur-md));
+    -webkit-backdrop-filter: blur(var(--blur-md));
+    border: 1px solid var(--border);
+  }
+
+  .glass-hover:hover {
+    background: var(--surface-hover);
+    border-color: var(--border-hover);
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Gradient button */
+  .btn-gradient {
+    background: var(--gradient-primary);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+  }
+
+  .btn-gradient:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow);
+  }
+
+  .btn-gradient:active {
+    transform: translateY(0);
+  }
+
+  /* Focus visible styles */
+  .focus-ring:focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 2px;
+  }
+
+  /* WordPress plugin scope (isolated styles) */
+  .wp-scope {
+    @apply rounded-2xl p-6 glass;
+  }
+
+  .wp-scope input[type="text"],
+  .wp-scope input[type="email"],
+  .wp-scope input[type="tel"],
+  .wp-scope textarea,
+  .wp-scope select {
+    @apply w-full px-4 py-3 rounded-xl bg-[var(--surface)] border border-[var(--border)]
+           text-[var(--text)] focus:border-[var(--brand)] focus:outline-none
+           transition-colors duration-200;
+  }
+
+  .wp-scope button[type="submit"],
+  .wp-scope input[type="submit"] {
+    @apply btn-gradient px-6 py-3 rounded-full font-medium text-[var(--bg)]
+           cursor-pointer focus-ring;
+  }
+
+  .wp-scope label {
+    @apply block mb-2 text-sm font-medium text-[var(--text-secondary)];
+  }
+}
+
+@layer utilities {
+  /* Custom animations */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes tilt {
+    0%, 100% {
+      transform: perspective(1000px) rotateY(-10deg) rotateX(5deg);
+    }
+    50% {
+      transform: perspective(1000px) rotateY(10deg) rotateX(-5deg);
+    }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-tilt {
+    animation: tilt 10s ease-in-out infinite;
+  }
+}
