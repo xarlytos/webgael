@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { RotateCcw, ZoomIn, ZoomOut, RotateCw, Play, Pause, Maximize2, Minimize2 } from 'lucide-react';
+import * as THREE from 'three';
 
 interface Real3DViewerProps {
   fileUrl: string | null;
@@ -28,9 +29,7 @@ export function Real3DViewer({ fileUrl, materialColor, onLoadingChange }: Real3D
     setIsLoading(true);
     setError(null);
 
-    // Import Three.js dynamically
-    import('three').then((THREE) => {
-      try {
+    try {
         // Handle window resize for fullscreen
         const handleResize = () => {
           if (rendererRef.current && cameraRef.current && containerRef.current) {
@@ -250,18 +249,12 @@ export function Real3DViewer({ fileUrl, materialColor, onLoadingChange }: Real3D
           document.removeEventListener('fullscreenerror', handleFullscreenError);
         };
 
-      } catch (err) {
-        console.error('Error initializing 3D viewer:', err);
-        setError('Error al cargar el visor 3D');
-        setIsLoading(false);
-        onLoadingChange(false);
-      }
-    }).catch((err) => {
-      console.error('Error loading Three.js:', err);
-      setError('Error al cargar la librería 3D');
+    } catch (err) {
+      console.error('Error initializing 3D viewer:', err);
+      setError('Error al cargar el visor 3D');
       setIsLoading(false);
       onLoadingChange(false);
-    });
+    }
   }, [fileUrl, materialColor, isRotating]);
 
   const handleResetView = () => {
